@@ -1,0 +1,43 @@
+
+  
+  input {
+    padding: .5rem;
+  }
+  
+  .title{
+    font-size: 40px;
+    font-weight: bolder;
+    /* text-align: center; */
+    margin-top: 50px !important;
+    margin-left: 150px;
+  }
+
+  .details{
+    margin-top: 68px;
+
+  }
+
+  .list{
+    height: 600px;
+    background: lightgrey;
+  }
+
+  .details-title{
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 30px !important;
+  }
+
+  .image{
+    height: 120px;
+    margin-left: 120px;
+    padding: 10px;
+  }
+
+  .info{
+      height: 100px;
+  }
+
+  .selected-row{
+      background-color: lightgrey;
+  }

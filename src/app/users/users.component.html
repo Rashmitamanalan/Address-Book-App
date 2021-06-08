@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card card border-0">
+                    
+        <h5 class="card-title details-title">Users</h5>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name <i class="bi bi-sort-alpha-up float-right" (click)="sortDesc()"></i>
+                <i class="bi bi-sort-alpha-down float-right" (click)="sortAsc()"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr scope="row" *ngFor="let user of users" (click)="onSelect(user)">
+               <td [ngClass]="selectedUser.userId === user.userId? 'selected-row' : ''">{{user.name}}</td>
+              
+              </tr>
+            </tbody>
+
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+            <div *ngIf="selectedUser">
+
+                
+                  <div class="row">
+                    <div class="column">
+                      <div class="card card border-0">
+                        <img class="image" src="assets/{{selectedUser.profileImage}}" alt="Card image cap">
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="card card border-0">
+                        <h2>{{selectedUser.name | uppercase}}</h2>
+                        <div>{{selectedUser.workExperience[0].title}}</div>
+                        <div>{{selectedUser.phone}}</div>
+                        <div>{{selectedUser.email}}</div>
+                      </div>
+                    </div>
+                  </div>
+
+               
+                <div class="card card border-0">
+                    
+                    <h5 class="card-title details-title">Education</h5>
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Year</th>
+                          <th scope="col">Institution</th>
+                          <th scope="col">Degree</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr scope="row" *ngFor="let e of selectedUser.education">
+                           <td  *ngIf="e.endYear">{{e.startYear}} - {{e.endYear}}</td>
+                           <td  *ngIf="!e.endYear">{{e.startYear}} - Present</td>
+                           <td>{{e.institution}}</td>
+                           <td>{{e.degree}}</td>
+                          
+                          </tr>
+                        </tbody>
+
+                    </table>
+                  </div>
+
+        
+                <div class="card card border-0">
+                    
+                      <h5 class="card-title details-title">Experience</h5>
+
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Year</th>
+                            <th scope="col">Institution</th>
+                            <th scope="col">Title</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr scope="row" *ngFor="let e of selectedUser.workExperience">
+                             <td  *ngIf="e.endYear">{{e.startYear}} - {{e.endYear}}</td>
+                             <td  *ngIf="!e.endYear">{{e.startYear}} - Present</td>
+                             <td>{{e.institution}}</td>
+                             <td>{{e.title}}</td>
+                            
+                            </tr>
+                          </tbody>
+
+                      </table>
+                    </div>
+                
+              
+              </div>
+        </div>
+
+    </div>
+</div>
+</div>
